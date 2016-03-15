@@ -61,20 +61,6 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
-    sudo apt-get install -y python-pip python-dev python-virtualenv build-essential
-    sudo apt-get install -y libatlas-base-dev gfortran
-    sudo apt-get build-dep -y python-matplotlib
-    pip install -r /vagrant/requirements.txt
-    sudo unlink /etc/init.d/jupyter
-    sudo ln -s /vagrant/init.d/jupyter /etc/init.d/jupyter
-    sudo chmod 755 /etc/init.d/jupyter
-    sudo update-rc.d jupyter defaults 97 03
-    unlink /home/vagrant/.jupyter
-    ln -s /vagrant/.jupyter /home/vagrant/.jupyter
-    sudo service jupyter restart
-  SHELL
+  config.vm.provision "shell", path: "setup.sh"
 end
-# echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.profile
-#   sudo pip install virtualenv virtualenvwrapper
+
