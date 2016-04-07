@@ -2,5 +2,5 @@
 
 sudo apt-get update
 
-./jupyter/setup.sh
-./r/setup.sh
+/vagrant/jupyter/setup.sh
+/vagrant/r/setup.sh

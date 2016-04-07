@@ -16,7 +16,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 DESC="Start Jupyter notebook server as a service"
 NAME=jupyter
 DAEMON=/usr/local/bin/jupyter
-DAEMON_ARGS="notebook --config=/vagrant/.jupyter/jupyter_notebook_config.py"
+DAEMON_ARGS="notebook --config=/vagrant/jupyter/jupyter_notebook_config.py"
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
